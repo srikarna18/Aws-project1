@@ -10,3 +10,10 @@ For each snapshot, it checks if the associated volume (if exists) is not associa
 If it finds a stale snapshot, it deletes it, effectively optimizing storage costs.
 
 To create lambda function for any services refer the documentation https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+
+Deleting the empty s3 buckets
+
+The lambda function fetches the s3 buckets with no files or folders(empty buckets) and delets the specific buckets.
+If it finds a stale s3 buckets, it deletes it, effectively optimizing storage costs.
+
+Checkout the AWS-Boto3 documentation for reference https://boto3.amazonaws.com/v1/documentation/api/latest/search.html?q=s3+bucket&check_keywords=yes&area=default#
