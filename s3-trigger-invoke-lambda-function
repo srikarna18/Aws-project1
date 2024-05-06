@@ -1,0 +1,4 @@
+In this tutorial, you use the console to create a Lambda function and configure a trigger for an Amazon Simple Storage Service (Amazon S3) bucket. 
+Every time that you add an object to your Amazon S3 bucket, your function runs and outputs the object type to Amazon CloudWatch Logs.
+
+And here is the tutorial https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
