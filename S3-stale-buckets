@@ -1,0 +1,19 @@
+import boto3
+import os
+
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    response = s3.list_buckets()
+    for bucket in response['Buckets']:
+        bucket_name = bucket['Name']
+        try:
+            s3_objects = s3.list_objects_v2(Bucket=bucket_name)
+            if 'Contents' not in s3_objects:
+                print(f'Bucket {bucket_name} is empty. Deleting...')
+                s3.delete_bucket(Bucket=bucket_name)
+                print(f'Bucket {bucket_name} deleted successfully.')
+            else:
+                print(f'Bucket {bucket_name} is not empty. Skipping...')
+        except Exception as e:
+            print(f'Error deleting bucket {bucket_name}: {e}')
